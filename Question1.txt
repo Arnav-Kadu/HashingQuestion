@@ -1,0 +1,51 @@
+
+Problem Statement:
+
+You are given an array `servers` where `servers[i]` represents the load on the i-th server.
+ Additionally, you have a hash key `H`, a modulus `M`, and a hash function `F(X) = (X^H % M)`,
+ where `X` is a value from the array `servers`. This hash function maps servers to machines.
+
+You can perform the following operation on a server's load:
+- Transfer the load from one server to another server.
+
+Note: X^H means X to the power H. Since the operation X^h could be huge, they would appreciate it if it is given modulo 1000000007.
+
+Your goal is to find the minimum number of such load transfer operations needed to ensure 
+that no more than `K` servers are mapped to the same machine.
+
+Constraints:
+1. `servers`: an array of integers where each element represents the load on a server.
+2. `H`: a positive integer representing the power in the hash function.
+3. `M`: a positive integer representing the modulus in the hash function.
+4. `K`: a positive integer representing the maximum number of servers that can be mapped to any single machine.
+
+Input:
+- `servers`: An array of integers representing the load on each server.
+- `H`: An integer, the hash key.
+- `M`: An integer, the modulus value for the hash function.
+- `K`: An integer, the maximum number of servers that can be mapped to any single machine.
+
+Output:
+- An integer representing the minimum number of load transfer operations required to ensure that 
+no machine has more than `K` servers mapped to it.
+
+Example:
+
+Suppose we have:
+- `servers = [3, 1, 4, 1, 5]`
+- `H = 2`
+- `M = 3`
+- `K = 2`
+
+The hash function `F(X)` would be computed as:
+- `F(3) = 3^2 % 3 = 0`
+- `F(1) = 1^2 % 3 = 1`
+- `F(4) = 4^2 % 3 = 1`
+- `F(1) = 1^2 % 3 = 1`
+- `F(5) = 5^2 % 3 = 1`
+
+Thus, the initial mapping is:
+- Machine 0: [3]
+- Machine 1: [1, 4, 1, 5]
+
+In this example, Machine 1 has 4 servers mapped to it, which exceeds the limit of `K = 2`. Your task is to redistribute the loads such that no machine has more than `K` servers, while minimizing the number of load transfer operations.
