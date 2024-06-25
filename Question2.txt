@@ -1,0 +1,1 @@
+Find the longest subarray in which all elements have different frequencies
