@@ -2,45 +2,42 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static final int MOD = 1000000007;
-    static void readArray(int[] a, BufferedReader br) throws IOException {
-        String[] input = br.readLine().split(" ");
-        for (int i = 0; i < a.length; i++) {
-            a[i] = Integer.parseInt(input[i]);
-        }
-    }
-    static long binaryExpo(long base, long exponent, long mod) {
+    static final long MOD = 1000000007;
+    static long binaryExpo(long base, long exponent) {
         long result = 1;
-        base %= mod;
+        base %= MOD;
         while (exponent > 0) {
             if (exponent % 2 != 0) {
-                result = (result * base) % mod;
+                result = (result * base) % MOD;
             }
-            base = (base * base) % mod;
+            base = (base * base) % MOD;
             exponent /= 2;
         }
         return result;
     }
     static void solve(BufferedReader br) throws IOException {
-        String[] input = br.readLine().split(" ");
-        int n = Integer.parseInt(input[0]);
-        int h = Integer.parseInt(input[1]);
-        int k = Integer.parseInt(input[2]);
-        int m = Integer.parseInt(input[3]);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        long n = Long.parseLong(st.nextToken());
+        long h = Long.parseLong(st.nextToken());
+        long k = Long.parseLong(st.nextToken());
+        long m = Long.parseLong(st.nextToken());
 
-        int[] a = new int[n];
-        readArray(a, br);
-
-        Map<Long, Integer> mp = new HashMap<>();
+        long[] a = new long[(int) n];
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            long key = binaryExpo(a[i], h, m);
-            mp.put(key, mp.getOrDefault(key, 0) + 1);
+            a[i] = Long.parseLong(st.nextToken());
         }
 
-        int request = 0;
-        int available = 0;
-        for (int i = 0; i < m; i++) {
-            int count = mp.getOrDefault((long)i, 0);
+        Map<Long, Long> mp = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            long key = binaryExpo(a[i], h) % m;
+            mp.put(key, mp.getOrDefault(key, 0L) + 1);
+        }
+
+        long request = 0;
+        long available = 0;
+        for (long i = 0; i < m; i++) {
+            long count = mp.getOrDefault(i, 0L);
             if (count <= k) {
                 available += k - count;
             } else {
