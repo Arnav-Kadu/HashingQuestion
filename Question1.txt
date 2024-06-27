@@ -20,10 +20,10 @@ Constraints:
 4. `K`: a positive integer representing the maximum number of servers that can be mapped to any single machine.
 
 Input:
-- `servers`: An array of integers representing the load on each server.
-- `H`: An integer, the hash key.
-- `M`: An integer, the modulus value for the hash function.
-- `K`: An integer, the maximum number of servers that can be mapped to any single machine.
+- `servers`: An array of integers representing the load on each server.  1<=servers[i]<=1e6
+- `H`: An integer, the hash key.                                         1<=h<=10000
+- `M`: An integer, the modulus value for the hash function.              1<=m<=10000
+- `K`: An integer, the maximum number of servers that can be mapped to any single machine.  1<=k<=1000000
 
 Output:
 - An integer representing the minimum number of load transfer operations required to ensure that 
