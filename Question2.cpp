@@ -42,13 +42,13 @@ while (t--)
 #define unq(v)  v.resize(distance(v.begin(), unique(v.begin(), v.end())));
 /****************************************YAHA HAI ASLI MAAL***************************************/
 int base1 = 304933, base2 = 4395853, p1 = 1e9 + 7, p2 = 1e9 + 9;
-vector<int>pow1(5005),pow2(5005);
+vector<int>pow1(1010),pow2(1010);
 void solve()
 {
     int n;
     cin >> n;
-    vector<int>a(5005);
-    map<pair<int,int>,int>m,checker[5005];
+    vector<int>a(1010);
+    map<pair<int,int>,int>m,checker[1010];
     int z=n;
     int i=0;
     while(z--){
@@ -81,7 +81,7 @@ int32_t main()
     fast
     
     pow1[0] = pow2[0] = 1;
-    for (int i = 1; i < 5005; ++i) {
+    for (int i = 1; i < 1010; ++i) {
         pow1[i] = (pow1[i-1] * base1) % p1;
         pow2[i] = (pow2[i-1] * base2) % p2;
     }
