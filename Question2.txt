@@ -1,1 +1,3 @@
-Find the longest subarray in which all elements have different frequencies
+There are two friends who have two different expertise, one good in writing the code and other is better and creating testing and generating them manually, one day the encountered one such problem in which that where given a unidirected graph
+and n edges from 1 to n for every i and j such that 1 ≤ i ≤ j ≤ n we have to create graph that consists of all edges numbered between [i,j] (inclusive). We need to output how many same graph are created
+i.e. all intervals i and j. The other friend is no a vacation so he asked for the help. Can you help him?
