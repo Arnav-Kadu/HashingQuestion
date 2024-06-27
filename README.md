@@ -1,2 +1,2 @@
 # HashingQuestion
-This is repo contains 2 question ,2 solution and 2 test files.
+This is repo contains 2 question, the details can be found in the respective the txt files.
